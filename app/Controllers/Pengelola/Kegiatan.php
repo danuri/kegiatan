@@ -14,7 +14,7 @@ class Kegiatan extends BaseController
     public function index()
     {
         $model = new KegiatanModel;
-        $data['giats'] = $model->where(['kode_satker' => session('kodesatker2')])->findAll();
+        $data['giats'] = $model->where(['kode_satker' => session('kelola')])->findAll();
         return view('pengelola/kegiatan/index', $data);
     }
 
