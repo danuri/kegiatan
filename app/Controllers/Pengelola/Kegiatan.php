@@ -35,7 +35,7 @@ class Kegiatan extends BaseController
 
 
       $param = [
-        'kode_satker' => session('kodesatker2'),
+        'kode_satker' => session('kelola'),
         'satker' => session('satker4'),
         'kode' => service('uuid')->uuid4(),
         'kegiatan' => $this->request->getVar('kegiatan'),
