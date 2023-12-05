@@ -7,6 +7,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use App\Models\KegiatanModel;
 use App\Models\PesertaModel;
+use Dompdf\Dompdf;
 
 class Kegiatan extends BaseController
 {
@@ -65,6 +66,43 @@ class Kegiatan extends BaseController
       $peserta = new PesertaModel;
       $data['peserta'] = $peserta->where('kegiatan_id',$id)->findAll();
       return view('pengelola/kegiatan/detail', $data);
+    }
+
+    public function peserta($id)
+    {
+      $peserta = new PesertaModel;
+
+      $id = decrypt($id);
+      $data['peserta'] = $peserta->find($id);
+
+      $model = new KegiatanModel;
+      $data['kegiatan'] = $model->find($data['peserta']->kegiatan_id);
+
+      return view('pengelola/kegiatan/biodata', $data);
+    }
+
+    public function topdf($id)
+    {
+      $dompdf = new Dompdf();
+  		$dompdf->set_option('isRemoteEnabled', true);
+      $dompdf->set_option('defaultFont', 'Courier');
+
+      $dompdf->setPaper('A4', 'potrait');
+
+      $peserta = new PesertaModel;
+
+      $id = decrypt($id);
+      $data['peserta'] = $peserta->find($id);
+
+      $model = new KegiatanModel;
+      $data['kegiatan'] = $model->find($data['peserta']->kegiatan_id);
+
+      $data['logo'] = file_get_contents('https://ropeg.kemenag.go.id/apps/kegiatan/assets/images/logo_kemenag_black.png');
+
+      $dompdf->loadHtml(view('pengelola/kegiatan/pdf', $data ));
+
+      $dompdf->render();
+      $dompdf->stream();
     }
 
     public function export($id)

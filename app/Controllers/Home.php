@@ -17,7 +17,7 @@ class Home extends BaseController
       $model = new KegiatanModel;
 
       $data['giat'] = $model->where(['kode' => $id,'is_active' => 1])->first();
-      
+
       if (! $data['giat']) {
           throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
       }
@@ -61,7 +61,7 @@ class Home extends BaseController
           'bank' => $this->request->getVar('bank'),
           'norek' => $this->request->getVar('norek'),
           'atasnama' => $this->request->getVar('atasnama'),
-          'signature' => $this->request->getVar('signpad'),
+          'signature' => 'data:image/png;base64,'.$this->request->getVar('signpad'),
         ];
 
         $model = new PesertaModel;

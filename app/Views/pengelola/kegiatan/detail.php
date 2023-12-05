@@ -51,7 +51,7 @@
                           <td><?= $row->nama?></td>
                           <td><?= $row->instansi?></td>
                           <td><?= $row->created_at?></td>
-                          <td> <a href="<?= site_url('pengelola/kegiatan/'.encrypt($row->id))?>" class="btn btn-sm btn-primary">Detail</a> </td>
+                          <td> <a href="<?= site_url('pengelola/kegiatan/peserta/'.encrypt($row->id))?>" class="btn btn-sm btn-primary">Detail</a> <a href="<?= site_url('pengelola/kegiatan/topdf/'.encrypt($row->id))?>" class="btn btn-sm btn-warning">PDF</a></td>
                         </tr>
                       <?php } ?>
                     </tbody>
