@@ -30,7 +30,7 @@ class Kegiatan extends BaseController
           'tanggal_sign' => "required",
           'rekening' => "required",
         ])) {
-            return $this->response->setJSON(['message'=>'Harap isi dengan lengkap.']);
+            return redirect()->back()->with('message', 'Harap isi dengan lengkap.');
         }
 
 
@@ -79,6 +79,22 @@ class Kegiatan extends BaseController
       $data['kegiatan'] = $model->find($data['peserta']->kegiatan_id);
 
       return view('pengelola/kegiatan/biodata', $data);
+    }
+
+    public function active($id)
+    {
+      $model = new KegiatanModel;
+      $update = $model->update($id,['is_active'=>1]);
+
+      return redirect()->back()->with('message', 'Form telah aktif.');
+    }
+
+    public function deactive($id)
+    {
+      $model = new KegiatanModel;
+      $update = $model->update($id,['is_active'=>0]);
+
+      return redirect()->back()->with('message', 'Form telah aktif.');
     }
 
     public function topdf($id)

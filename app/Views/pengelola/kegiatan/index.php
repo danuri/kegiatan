@@ -28,7 +28,7 @@
                         <th>Tanggal</th>
                         <th>Kegiatan</th>
                         <th>Lokasi</th>
-                        <th>Jumlah Submit</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -38,7 +38,7 @@
                           <td><?= $row->waktu_awal?></td>
                           <td><?= $row->kegiatan?></td>
                           <td><?= $row->kota?></td>
-                          <td>x</td>
+                          <td><?= isactive($row->is_active,$row->kode)?></td>
                           <td> <a href="<?= site_url('pengelola/kegiatan/'.encrypt($row->kode))?>" class="btn btn-sm btn-primary">Detail</a> <a href="<?= site_url('pengelola/kegiatan/edit/'.encrypt($row->kode))?>" class="btn btn-sm btn-primary">Edit</a> </td>
                         </tr>
                       <?php } ?>

@@ -278,22 +278,12 @@ function surat_status($status)
   return $result;
 }
 
-function berkas_status($status)
+function isactive($status,$id)
 {
-  if($status == 0){
-    $result = '<span class="badge bg-success">Cek Berkas</span>';
-  }else if($status == 1){
-    $result = '<span class="badge bg-dark">Diproses</span>';
-  }else if($status == 2){
-    $result = '<span class="badge bg-success">ACC</span>';
-  }else if($status == 3){
-    $result = '<span class="badge bg-danger">BTL</span>';
-  }else if($status == 4){
-    $result = '<span class="badge bg-info">Dilengkapi</span>';
-  }else if($status == 9){
-    $result = '<span class="badge bg-primary">Selesai</span>';
+  if($status == 1){
+    $result = '<a href="'.site_url('pengelola/kegiatan/deactive/'.$id).'" class="btn btn-sm btn-success" onclick="return confim(\'Form akan dinonaktifkan?\')">Aktif</span>';
   }else{
-    $result = '';
+    $result = '<a href="'.site_url('pengelola/kegiatan/active/'.$id).'" class="btn btn-sm btn-dark" onclick="return confim(\'Form akan dinonaktifkan?\')">Non Aktif</span>';
   }
 
   return $result;
