@@ -15,8 +15,8 @@ use CodeIgniter\Router\RouteCollection;
  $routes->post('biodata/save/(:any)', 'Home::biodatasave/$1');
 
  $routes->get('/', 'Home::index', ["filter" => "auth"]);
- $routes->get('checkpegawai/(:num)', 'Home::checkpegawai/$1', ["filter" => "auth"]);
- $routes->get('getpegawai/(:num)/(:any)', 'Home::getpegawai/$1/$2', ["filter" => "auth"]);
+ $routes->get('checkpegawai/(:num)', 'Home::checkpegawai/$1');
+ $routes->get('getpegawai/(:num)/(:any)', 'Home::getpegawai/$1/$2');
 
  $routes->group("pengelola", ["filter" => "auth"], function ($routes) {
      $routes->get('kegiatan', 'Pengelola\Kegiatan::index');
