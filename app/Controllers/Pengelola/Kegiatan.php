@@ -100,6 +100,7 @@ class Kegiatan extends BaseController
     public function delete($id)
     {
       $model = new PesertaModel;
+      $id = decrypt($id);
       $update = $model->delete($id);
 
       return redirect()->back()->with('message', 'Peserta telah dihapus.');
