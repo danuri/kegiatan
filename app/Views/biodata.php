@@ -31,12 +31,58 @@
       max-width: 800px;
     }
   }
+
+  #loverlay{
+	position: fixed;
+	top: 0;
+	z-index: 100000;
+	width: 100%;
+	height:100%;
+	display: none;
+	background: rgba(0,0,0,0.6);
+	}
+	.cv-spinner {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	}
+	.spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px #ddd solid;
+	border-top: 4px #2e93e6 solid;
+	border-radius: 50%;
+	animation: sp-anime 0.8s infinite linear;
+	}
+	@keyframes sp-anime {
+	100% {
+		transform: rotate(360deg);
+	}
+	}
+	.is-hide{
+	display:none;
+	}
+  .progressx {
+    width: 100px;
+  	height: 40px;
+    margin-top: 25px;
+    padding-left: 10px;
+    color: #fff;
+	}
   </style>
   <?= $this->renderSection('style') ?>
 
 </head>
 
 <body>
+  <div id="loverlay">
+  <div class="cv-spinner">
+    <span class="spinner"></span>
+    <span class="progressx">Loading...</span>
+  </div>
+  </div>
+
   <div class="container">
     <div class="row vh-100 justify-content-between align-items-center">
       <div class="col-12">
@@ -59,7 +105,7 @@
                 </div>
                 <div class="col-lg-9">
                   <div class="input-group">
-                    <input type="text" class="form-control" name="nip" id="nip" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input type="text" class="form-control" name="nip" id="nip" aria-label="Recipient's username" aria-describedby="button-addon2" required>
                     <button class="btn btn-outline-success" type="button" id="button-addon2" onclick="checksimpeg()">Check</button>
                   </div>
                   Silakan isi secara manual jika bukan dari Kementerian Agama.
@@ -70,7 +116,7 @@
                   <label for="nameInput" class="form-label">Nama Lengkap</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" name="nama" id="nama">
+                  <input type="text" class="form-control" name="nama" id="nama" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -78,7 +124,7 @@
                   <label for="nameInput" class="form-label">Jabatan</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" id="jabatan" name="jabatan">
+                  <input type="text" class="form-control" id="jabatan" name="jabatan" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -86,10 +132,10 @@
                   <label for="nameInput" class="form-label">Pangkat/Golongan</label>
                 </div>
                 <div class="col-lg-4">
-                  <input type="text" class="form-control" id="pangkat" name="pangkat">
+                  <input type="text" class="form-control" id="pangkat" name="pangkat" required>
                 </div>
                 <div class="col-lg-4">
-                  <input type="text" class="form-control" id="golongan" name="golongan">
+                  <input type="text" class="form-control" id="golongan" name="golongan" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -97,7 +143,7 @@
                   <label for="nameInput" class="form-label">Unit Kerja / Instansi</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" id="instansi" name="instansi">
+                  <input type="text" class="form-control" id="instansi" name="instansi" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -105,7 +151,7 @@
                   <label for="nameInput" class="form-label">Alamat Kantor</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" id="alamatkantor" name="alamatkantor">
+                  <input type="text" class="form-control" id="alamatkantor" name="alamatkantor" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -113,7 +159,7 @@
                   <label for="nameInput" class="form-label">Alamat Rumah</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" id="alamatrumah" name="alamatrumah">
+                  <input type="text" class="form-control" id="alamatrumah" name="alamatrumah" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -121,7 +167,7 @@
                   <label for="nameInput" class="form-label">Email</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" id="email" name="email">
+                  <input type="text" class="form-control" id="email" name="email" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -129,7 +175,7 @@
                   <label for="nameInput" class="form-label">Nomor HP (WA)</label>
                 </div>
                 <div class="col-lg-9">
-                  <input type="text" class="form-control" id="nohp" name="nohp">
+                  <input type="text" class="form-control" id="nohp" name="nohp" required>
                 </div>
               </div>
               <?php if($giat->rekening == 1){ ?>
@@ -138,7 +184,7 @@
                     <label for="nameInput" class="form-label">NPWP</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="npwp" name="npwp">
+                    <input type="text" class="form-control" id="npwp" name="npwp" required>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -146,7 +192,7 @@
                     <label for="nameInput" class="form-label">Nama Bank</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="bank" name="bank">
+                    <input type="text" class="form-control" id="bank" name="bank" required>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -154,7 +200,7 @@
                     <label for="nameInput" class="form-label">Nomor Rekening</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="norek" name="norek">
+                    <input type="text" class="form-control" id="norek" name="norek" required>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -162,7 +208,7 @@
                     <label for="nameInput" class="form-label">Rekening Atas Nama</label>
                   </div>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="atasnama" name="atasnama">
+                    <input type="text" class="form-control" id="atasnama" name="atasnama" required>
                   </div>
                 </div>
               <?php } ?>
@@ -231,12 +277,13 @@
   });
 
   function checksimpeg() {
+    loader();
     var nip = $('#nip').val();
     var kode = '<?= $giat->kode;?>';
 
     $.get('<?= site_url('checkpegawai')?>/'+nip, function(result) {
       if(result['status'] == 1){
-
+        $("#loverlay").fadeOut(300);
         Swal.fire({
         text: 'Masukan Password SIMPEG untuk menampilkan data. Atau Anda bisa mengisi secara manual.',
         input: 'password',
@@ -279,7 +326,10 @@
         }
       });
 
-      }
+    }else{
+      alert('NIP tidak ditemukan');
+      $("#loverlay").fadeOut(300);
+    }
     });
   }
 
