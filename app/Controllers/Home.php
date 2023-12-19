@@ -65,9 +65,13 @@ class Home extends BaseController
         ];
 
         $model = new PesertaModel;
-        $model->insert($param);
+        $insert = $model->insert($param);
 
-        return redirect()->to('biodata/success');
+        if($insert){
+          return redirect()->to('biodata/success');
+        }else{
+          return redirect()->back()->with('message', 'Biodata gagal tersimpan.');
+        }
     }
 
     public function checkpegawai($nip)

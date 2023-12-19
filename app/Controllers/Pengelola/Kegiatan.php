@@ -97,6 +97,14 @@ class Kegiatan extends BaseController
       return redirect()->back()->with('message', 'Form telah aktif.');
     }
 
+    public function delete($id)
+    {
+      $model = new PesertaModel;
+      $update = $model->delete($id);
+
+      return redirect()->back()->with('message', 'Peserta telah dihapus.');
+    }
+
     public function topdf($id)
     {
       $dompdf = new Dompdf();
