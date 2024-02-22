@@ -46,7 +46,7 @@ class Auth extends BaseController
         $data = $data->pegawai;
 
         $simpeg = new SimpegModel;
-        $checkrole = $simpeg->getRow('UM_USER',['NIP'=>$data->NIP,'APP_ID'=>4]);
+        $checkrole = $simpeg->getRow('UM_USER',['NIP'=>$data->NIP,'APP_ID'=>11]);
 
         if($checkrole){
           $ses_data = [
