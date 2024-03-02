@@ -186,10 +186,10 @@ class Kegiatan extends BaseController
       $peserta = new PesertaModel;
 
       $id = decrypt($id);
-      $data['peserta'] = $peserta->find($id);
+      $data['pesertas'] = $peserta->where('id',$id)->findAll();
 
       $model = new KegiatanModel;
-      $data['kegiatan'] = $model->find($data['peserta']->kegiatan_id);
+      $data['kegiatan'] = $model->find($data['pesertas'][0]->kegiatan_id);
 
       $data['logo'] = file_get_contents('https://ropeg.kemenag.go.id/apps/kegiatan/assets/images/logo_kemenag_black.png');
 

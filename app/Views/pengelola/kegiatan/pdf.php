@@ -76,7 +76,7 @@
               <img src="data:image/png;base64, <?= base64_encode($logo);?>" width="100px">
               <h2>BIODATA PESERTA</h2>
               <h3>KEGIATAN <?= strtoupper($kegiatan->kegiatan);?></h3>
-              <h3><?= $kegiatan->lokasi;?><br><?= $kegiatan->kota.', '.local_date($kegiatan->waktu_awal);?></h3>
+              <h4><?= $kegiatan->lokasi;?><br><?= $kegiatan->kota.', '.local_date($kegiatan->waktu_awal).' s.d '.local_date($kegiatan->waktu_akhir);?></h4>
             </center>
           </td>
         </tr>
