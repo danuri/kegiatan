@@ -58,10 +58,16 @@
         border-style: double;
         padding: 5px;
         height: 1010px;
+        page-break-after: always;
+      }
+
+      .kotak:last-child {
+         page-break-after: unset;
       }
       </style>
   </head>
   <body>
+    <?php foreach ($pesertas as $peserta) {?>
     <div class="kotak">
       <table class="table" width="100%" id="header">
         <tr>
@@ -156,6 +162,6 @@
         </tr>
       </table>
     </div>
-
+    <?php } ?>
   </body>
 </html>

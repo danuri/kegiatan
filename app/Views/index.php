@@ -12,7 +12,8 @@
       </div>
     </div>
 
-    <div class="row">x
+    <div class="row">
+      <?= //session('token')?>
     </div>
 
   </div>

@@ -65,6 +65,7 @@ class Auth extends BaseController
             'satker4'     => $data->SATKER_4,
             'kodesatker5' => $data->KODE_SATKER_5,
             'kelola'     => $checkrole->KODE_SATKER,
+            'token'     => $data->token,
             'isLoggedIn' => TRUE
           ];
           session()->set($ses_data);

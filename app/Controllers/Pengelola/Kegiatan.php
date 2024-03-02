@@ -57,6 +57,51 @@ class Kegiatan extends BaseController
       return redirect()->back()->with('message', 'Kegiatan telah ditambahkan.');
     }
 
+    public function edit($id)
+    {
+      $model = new KegiatanModel;
+      $id = decrypt($id);
+      $data['giat'] = $model->find($id);
+
+      return view('pengelola/kegiatan/edit', $data);
+    }
+
+    public function editsave($id)
+    {
+      if (! $this->validate([
+          'kegiatan' => "required",
+          'lokasi' => "required",
+          'tahun_anggaran' => "required",
+          'waktu_awal' => "required",
+          'waktu_akhir' => "required",
+          'kota' => "required",
+          'tanggal_sign' => "required",
+          'rekening' => "required",
+        ])) {
+            return redirect()->back()->with('message', 'Harap isi dengan lengkap.');
+        }
+
+      $id = decrypt($id);
+
+      $param = [
+        'kode' => $id,
+        'kegiatan' => $this->request->getVar('kegiatan'),
+        'lokasi' => $this->request->getVar('lokasi'),
+        'tahun_anggaran' => $this->request->getVar('tahun_anggaran'),
+        'waktu_awal' => $this->request->getVar('waktu_awal'),
+        'waktu_akhir' => $this->request->getVar('waktu_akhir'),
+        'kota' => $this->request->getVar('kota'),
+        'tanggal_sign' => $this->request->getVar('tanggal_sign'),
+        'rekening' => $this->request->getVar('rekening'),
+        'jenis' => $this->request->getVar('jenis'),
+      ];
+
+      $model = new KegiatanModel;
+      $model->save($param);
+
+      return redirect()->back()->with('message', 'Kegiatan telah diubah.');
+    }
+
     public function detail($id)
     {
       $model = new KegiatanModel;
@@ -104,6 +149,30 @@ class Kegiatan extends BaseController
       $update = $model->delete($id);
 
       return redirect()->back()->with('message', 'Peserta telah dihapus.');
+    }
+
+    public function exportpdf($id)
+    {
+      $pmodel = new PesertaModel;
+      $peserta = $pmodel->where('kegiatan_id',$id)->findAll();
+
+      $model = new KegiatanModel;
+      $data['kegiatan'] = $model->find($id);
+
+      $dompdf = new Dompdf();
+      $dompdf->set_option('isRemoteEnabled', true);
+      $dompdf->set_option('defaultFont', 'Courier');
+
+      $dompdf->setPaper('A4', 'potrait');
+
+      $data['pesertas'] = $pmodel->where('kegiatan_id',$id)->findAll();
+
+      $data['logo'] = file_get_contents('https://ropeg.kemenag.go.id/apps/kegiatan/assets/images/logo_kemenag_black.png');
+
+      $dompdf->loadHtml(view('pengelola/kegiatan/pdf', $data ));
+
+      $dompdf->render();
+      $dompdf->stream();
     }
 
     public function topdf($id)

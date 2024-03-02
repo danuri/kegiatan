@@ -10,7 +10,7 @@
                     <h4 class="mb-sm-0">Kegiatan <?= $giat->kegiatan?></h4>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"> <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addkegiatan  "><i class="icon-plus"></i> Kembali</button> </li>
+                            <li class="breadcrumb-item"> <a href="<?= site_url('pengelola/kegiatan')?>" class="btn btn-sm btn-primary text-light"><i class="icon-plus"></i> Kembali</a> </li>
                         </ol>
                     </div>
                 </div>
@@ -30,6 +30,7 @@
                   <a href="<?= site_url('pengelola/kegiatan/export/'.$giat->kode)?>" class="btn btn-success">Download Excel</a>
                   <button type="button" class="btn btn-primary">Download Nominatif</button>
                   <button type="button" class="btn btn-warning">Download Absen</button>
+                  <a href="<?= site_url('pengelola/kegiatan/exportpdf/'.$giat->kode)?>" class="btn btn-danger">Download Biodata PDF</a>
                 </div>
               </div>
               <div class="card-body">
