@@ -13,7 +13,7 @@
     </div>
 
     <div class="row">
-      <?= //session('token')?>
+      Selamat Datang
     </div>
 
   </div>
