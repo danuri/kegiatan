@@ -76,7 +76,11 @@
               <img src="data:image/png;base64, <?= base64_encode($logo);?>" width="100px">
               <h2>BIODATA PESERTA</h2>
               <h3>KEGIATAN <?= strtoupper($kegiatan->kegiatan);?></h3>
+              <?php if($kegiatan->jenis == 'Fullboard'){ ?>
               <h4><?= $kegiatan->lokasi;?><br><?= $kegiatan->kota.', '.local_date($kegiatan->waktu_awal).' s.d '.local_date($kegiatan->waktu_akhir);?></h4>
+              <?php }else{ ?>
+                <h4><?= $kegiatan->lokasi;?><br><?= $kegiatan->kota.', '.local_date($kegiatan->waktu_awal);?></h4>
+              <?php } ?>
             </center>
           </td>
         </tr>

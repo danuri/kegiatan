@@ -45,6 +45,14 @@ class Home extends BaseController
             return redirect()->back()->with('message', 'Harap isi dengan lengkap.');
         }
 
+        $model = new PesertaModel;
+
+        $cek = $model->where(['kegiatan_id'=>$id,'nip'=>$this->request->getVar('nip')])->first();
+        
+        if($cek){
+          return redirect()->back()->with('message', 'NIP Anda sudah terdaftar pada kegiatan ini.');
+        }
+
         $param = [
           'kegiatan_id' => $id,
           'nip' => $this->request->getVar('nip'),
@@ -64,7 +72,6 @@ class Home extends BaseController
           'signature' => 'data:image/png;base64,'.$this->request->getVar('signpad'),
         ];
 
-        $model = new PesertaModel;
         $insert = $model->insert($param);
 
         if($insert){

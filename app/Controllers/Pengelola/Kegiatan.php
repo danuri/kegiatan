@@ -25,7 +25,6 @@ class Kegiatan extends BaseController
           'lokasi' => "required",
           'tahun_anggaran' => "required",
           'waktu_awal' => "required",
-          'waktu_akhir' => "required",
           'kota' => "required",
           'tanggal_sign' => "required",
           'rekening' => "required",
@@ -33,23 +32,58 @@ class Kegiatan extends BaseController
             return redirect()->back()->with('message', 'Harap isi dengan lengkap.');
         }
 
+        $param = [
+          'kode_satker' => session('kelola'),
+          'satker' => session('satker4'),
+          'kode' => service('uuid')->uuid4(),
+          'kegiatan' => $this->request->getVar('kegiatan'),
+          'lokasi' => $this->request->getVar('lokasi'),
+          'tahun_anggaran' => $this->request->getVar('tahun_anggaran'),
+          'waktu_awal' => $this->request->getVar('waktu_awal'),
+          'waktu_akhir' => $this->request->getVar('waktu_akhir'),
+          'kota' => $this->request->getVar('kota'),
+          'tanggal_sign' => $this->request->getVar('tanggal_sign'),
+          'rekening' => $this->request->getVar('rekening'),
+          'jenis' => $this->request->getVar('jenis'),
+          'created_by' => session('nip'),
+          'is_active' => 0,
+        ];
 
-      $param = [
-        'kode_satker' => session('kelola'),
-        'satker' => session('satker4'),
-        'kode' => service('uuid')->uuid4(),
-        'kegiatan' => $this->request->getVar('kegiatan'),
-        'lokasi' => $this->request->getVar('lokasi'),
-        'tahun_anggaran' => $this->request->getVar('tahun_anggaran'),
-        'waktu_awal' => $this->request->getVar('waktu_awal'),
-        'waktu_akhir' => $this->request->getVar('waktu_akhir'),
-        'kota' => $this->request->getVar('kota'),
-        'tanggal_sign' => $this->request->getVar('tanggal_sign'),
-        'rekening' => $this->request->getVar('rekening'),
-        'jenis' => $this->request->getVar('jenis'),
-        'created_by' => session('nip'),
-        'is_active' => 0,
-      ];
+      // Jika Pra Register
+      if($this->request->getVar('praregister') == 1){
+
+        $file_name = $_FILES['lampiran']['name'];
+        $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+
+        $file_name = 'hrmsst.'.session('niplama').'-'.time().'.'.$ext;
+    		$temp_file_location = $_FILES['lampiran']['tmp_name'];
+
+        $s3 = new S3Client([
+          'region'  => 'us-east-1',
+          'endpoint' => 'https://ropeg.kemenag.go.id:9000/',
+          'use_path_style_endpoint' => true,
+          'version' => 'latest',
+          'credentials' => [
+            // 'key'    => "118ZEXFCFS0ICPCOLIEJ",
+            // 'secret' => "9xR+TBkYyzw13guLqN7TLvxhfuOHSW++g7NCEdgP",
+            'key'    => "PkzyP2GIEBe8z29xmahI",
+            'secret' => "voNVqTilX2iux6u7pWnaqJUFG1414v0KTaFYA0Uz",
+          ],
+          'http'    => [
+              'verify' => false
+          ]
+        ]);
+
+    		$result = $s3->putObject([
+    			'Bucket' => 'presensi',
+    			'Key'    => 'ketidakhadiran/'.$file_name,
+    			'SourceFile' => $temp_file_location,
+          'ContentType' => 'application/pdf'
+    		]);
+
+        $param['surat_tugas'] = $file_name;
+
+      }
 
       $model = new KegiatanModel;
       $model->insert($param);

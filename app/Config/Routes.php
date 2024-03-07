@@ -31,4 +31,10 @@ use CodeIgniter\Router\RouteCollection;
      $routes->post('kegiatan/edit/(:any)', 'Pengelola\Kegiatan::editsave/$1');
      $routes->get('kegiatan/(:any)', 'Pengelola\Kegiatan::detail/$1');
      $routes->post('kegiatan/save', 'Pengelola\Kegiatan::save');
+
+     $routes->group("perjadin", function ($routes) {
+         $routes->get('', 'Pengelola\Perjadin::index');
+         $routes->get('save', 'Pengelola\Perjadin::save');
+         $routes->get('edit/(:any)', 'Pengelola\Perjadin::edit/$1');
+     });
  });

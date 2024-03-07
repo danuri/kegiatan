@@ -289,6 +289,17 @@ function isactive($status,$id)
   return $result;
 }
 
+function isactiveperjadin($status,$id)
+{
+  if($status == 1){
+    $result = '<a href="'.site_url('pengelola/perjadin/deactive/'.$id).'" class="btn btn-sm btn-success" onclick="return confim(\'Kegiatan akan dinonaktifkan?\')">Aktif</span>';
+  }else{
+    $result = '<a href="'.site_url('pengelola/perjadin/active/'.$id).'" class="btn btn-sm btn-dark" onclick="return confim(\'Kegiatan akan dinonaktifkan?\')">Non Aktif</span>';
+  }
+
+  return $result;
+}
+
 function tte_status($status)
 {
   if($status == 1){

@@ -19,6 +19,7 @@
 
         <div class="row">
           <div class="col-xl-12">
+            <?php if($giat->praregister == 1){?>
             <div class="card">
               <div class="card-body">
                 <form action="" method="post" id="add">
@@ -29,6 +30,7 @@
                       <div class="col-lg-9">
                         <div class="input-group">
                           <input type="file" class="form-control" aria-label="Upload">
+                          <input type="hidden" name="filename" value="<?= $giat->surat_tugas?>">
                           <button class="btn btn-success" type="button" id="inputGroupFileAddon04">Upload</button>
                         </div>
                       </div>
@@ -36,7 +38,8 @@
               </form>
               </div>
             </div>
-            
+            <?php } ?>
+
             <div class="card">
               <div class="card-header">
                 Edit Kegiatan

@@ -53,8 +53,7 @@
     </div>
 </div>
 
-<!-- Default Modals -->
-<div id="addkegiatan" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="addkegiatan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -68,7 +67,7 @@
                         <label for="nameInput" class="form-label">Jenis Kegiatan</label>
                     </div>
                     <div class="col-lg-9">
-                        <select class="form-select" name="jenis">
+                        <select class="form-select" name="jenis" id="jenis">
                           <option value="Fullboard">Fullboard</option>
                           <option value="Fullday">Fullday</option>
                           <option value="Meeting">Meeting</option>
@@ -107,7 +106,7 @@
                         <input type="date" class="form-control" name="waktu_awal">
                     </div>
                     <div class="col-lg-4">
-                        <input type="date" class="form-control" name="waktu_akhir">
+                        <input type="date" class="form-control" id="waktu_akhir" name="waktu_akhir">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -137,6 +136,32 @@
                       </select>
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="meassageInput" class="form-label">Pra Register?</label>
+                    </div>
+                    <div class="col-lg-9">
+                      <select class="form-select" name="praregister" id="praregister">
+                        <option value="0">Tidak</option>
+                        <option value="1">Ya</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="row mb-3" id="lampiran" style="display:none;">
+                    <div class="col-lg-3">
+                        <label for="meassageInput" class="form-label">Lampiran Surat Tugas</label>
+                    </div>
+                    <div class="col-lg-9">
+                      <input type="file" class="form-control" name="lampiran" value="">
+                      <div class="alert alert-success mt-2">
+                        <ul>
+                          <li>Jika Anda menggunakan Pra register, Anda wajib mengunggah Surat Tugas.</li>
+                          <li>Peserta kegiatan yang mengisi biodata akan otomatis ditambahkan pada Pelaporan Ketidakhadiran Presensi</li>
+                          <li>Peserta yang bisa mengisi biodata hanya peserta yang telah didaftarkan oleh Anda</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
             </form>
             </div>
             <div class="modal-footer">
@@ -148,106 +173,32 @@
     </div>
 </div>
 
-<div id="editkegiatan" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="myModalLabel">Buat Kegiatan Baru</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
-            </div>
-            <div class="modal-body">
-              <form action="<?= site_url('pengelola/kegiatan/save')?>" method="post" id="edit">
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="nameInput" class="form-label">Jenis Kegiatan</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <select class="form-select" name="jenis">
-                          <option value="Fullboard">Fullboard</option>
-                          <option value="Fullday">Fullday</option>
-                          <option value="Meeting">Meeting</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="nameInput" class="form-label">Nama Kegiatan</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" id="kegiatan" name="kegiatan">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="websiteUrl" class="form-label">Lokasi Kegiatan</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="dateInput" class="form-label">Tahun Anggaran</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="number" class="form-control" id="tahun_anggaran" name="tahun_anggaran" value="<?= date('Y')?>">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="timeInput" class="form-label">Waktu</label>
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="date" class="form-control" id="waktu_awal" name="waktu_awal">
-                    </div>
-                    <div class="col-lg-4">
-                        <input type="date" class="form-control" id="waktu_akhir" name="waktu_akhir">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="leaveemails" class="form-label">Kota Pelaksanaan</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="text" class="form-control" id="kota" name="kota">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="contactNumber" class="form-label">Tanggal Tanda Tanggan</label>
-                    </div>
-                    <div class="col-lg-9">
-                        <input type="date" class="form-control" id="tanggal_sign" name="tanggal_sign">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3">
-                        <label for="meassageInput" class="form-label">Tampilkan Rekening?</label>
-                    </div>
-                    <div class="col-lg-9">
-                      <select class="form-select" name="rekening" id="rekening">
-                        <option value="1">Ya</option>
-                        <option value="0">Tidak</option>
-                      </select>
-                    </div>
-                </div>
-            </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary " onclick="$('#edit').submit()">Simpan</button>
-            </div>
-
-        </div>
-    </div>
-</div>
 <?= $this->endSection() ?>
 
-<?= $this->section('sciprt') ?>
+<?= $this->section('script') ?>
 <script type="text/javascript">
-  function edit(id) {
 
-    $('#editkegiatan').modal('show');
-  }
+  $(document).ready(function() {
+    $('#jenis').on('change', function(event) {
+      let jenis = $( "#jenis option:selected" ).text();
+
+      if(jenis == 'Fullboard'){
+        $('#waktu_akhir').prop( "disabled", false );
+      }else{
+        $('#waktu_akhir').prop( "disabled", true );
+      }
+    });
+
+    $('#praregister').on('change', function(event) {
+      let reg = $( "#praregister" ).val();
+
+      if(reg == 1){
+        $('#lampiran').show();
+      }else{
+        $('#lampiran').hide();
+      }
+    });
+  });
+
 </script>
 <?= $this->endSection() ?>
