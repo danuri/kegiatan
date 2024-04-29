@@ -10,7 +10,7 @@ use CodeIgniter\Router\RouteCollection;
  $routes->get('auth/logout', 'Auth::logout');
  $routes->get('auth/callback', 'Auth::callback');
 
-$routes->post('api/perjadin', 'Api::perjadin');
+ $routes->get('api/perjadin', 'Api::perjadin');
  $routes->get('api/perjadin/(:num)', 'Api::perjadin/$1');
  $routes->get('api/perjadin/detail/(:any)', 'Api::perjadindetail/$1');
 
