@@ -18,7 +18,7 @@ class Api extends BaseController
     {
       // $nip = decrypt($nip);
 
-      $db = db_connect();
+      $db = \Config\Database::connect('default', false);
       $builder = $db->table('tr_perjadin_peserta')
                     ->select('tr_perjadin_peserta.*,tr_perjadin.kegiatan,tr_perjadin.sasaran,
                               tr_perjadin.tahun_anggaran,
