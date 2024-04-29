@@ -28,7 +28,7 @@ class Api extends BaseController
                               tr_perjadin.surat_tugas,
                               tr_perjadin.created_at')
                     ->join('tr_perjadin', 'tr_perjadin.kode = tr_perjadin_peserta.kode_perjadin')
-                    ->where(['tr_perjadin_peserta'=>$nip]);
+                    ->where(['tr_perjadin_peserta.nip'=>$nip]);
 
       return DataTable::of($builder)->toJson(true);
     }
