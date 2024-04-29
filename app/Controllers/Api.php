@@ -14,7 +14,7 @@ class Api extends BaseController
         //
     }
 
-    public function perjadin($nip)
+    public function perjadinx($nip)
     {
       // $nip = decrypt($nip);
 
@@ -33,7 +33,7 @@ class Api extends BaseController
       return DataTable::of($builder)->toJson(true);
     }
 
-    public function perjadinx($nip)
+    public function perjadin($nip)
     {
       // $nip = decrypt($nip);
 
