@@ -36,9 +36,8 @@
                         <tr>
                           <td><?= $row->kegiatan?></td>
                           <td><?= $row->tgl_awal.' s.d '.$row->tgl_akhir?></td>
-                          <td><?= $row->status?></td>
                           <td><?= isactiveperjadin($row->is_active,$row->kode)?></td>
-                          <td> <a href="<?= site_url('pengelola/perjadin/'.encrypt($row->kode))?>" class="btn btn-sm btn-primary">Detail</a> <a href="<?= site_url('pengelola/perjadin/edit/'.encrypt($row->kode))?>" class="btn btn-sm btn-success">Edit</a></td>
+                          <td> <a href="<?= site_url('pengelola/perjadin/detail/'.$row->kode)?>" class="btn btn-sm btn-primary">Detail</a> <a href="<?= site_url('pengelola/perjadin/edit/'.encrypt($row->kode))?>" class="btn btn-sm btn-success">Edit</a></td>
                         </tr>
                       <?php } ?>
                     </tbody>
@@ -60,7 +59,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
             </div>
             <div class="modal-body">
-              <form action="<?= site_url('pengelola/perjadin/save')?>" method="post" id="add">
+              <form action="<?= site_url('pengelola/perjadin/save')?>" method="post" id="add" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="col-lg-3">
                         <label for="nameInput" class="form-label">Nama Kegiatan</label>
@@ -86,6 +85,23 @@
                     </div>
                     <div class="col-lg-4">
                         <input type="date" class="form-control" name="tgl_akhir">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="meassageInput" class="form-label">Nomor Surat Tugas</label>
+                    </div>
+                    <div class="col-lg-9">
+                      <input type="text" class="form-control" name="nomor_st" value="">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="meassageInput" class="form-label">Tahun Anggaran</label>
+                    </div>
+                    <div class="col-lg-9">
+                      <input type="number" class="form-control" name="tahun_anggaran" value="">
                     </div>
                 </div>
                 <div class="row mb-3">

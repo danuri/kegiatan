@@ -11,8 +11,10 @@
     },
     "require": {
         "php": "^7.4 || ^8.0",
+        "aws/aws-sdk-php": "^3.301",
         "codeigniter4/framework": "^4.0",
         "dompdf/dompdf": "^2.0",
+        "hermawan/codeigniter4-datatables": "^0.7.2",
         "michalsn/codeigniter4-uuid": "^1.0",
         "phpoffice/phpspreadsheet": "^1.29"
     },

@@ -277,22 +277,19 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLanding">
-                        <i class="ri-uninstall-line"></i> <span data-key="t-landing">Pengelola</span>
+                      <a class="nav-link menu-link" href="<?= site_url('pengelola/kegiatan')?>">
+                        <i class="ri-file-list-3-line"></i> <span data-key="t-landing">Kegiatan</span>
                       </a>
-                      <div class="collapse menu-dropdown" id="sidebarLanding">
-                        <ul class="nav nav-sm flex-column">
-                          <li class="nav-item">
-                            <a href="<?= site_url('pengelola/kegiatan')?>" class="nav-link" data-key="t-one-page"> Kegiatan </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="<?= site_url('pengelola/perjadin')?>" class="nav-link" data-key="t-nft-landing"> Perjalanan Dinas </a>
-                          </li>
-                          <li class="nav-item">
-                            <a href="<?= site_url('pengelola/setting')?>" class="nav-link" data-key="t-nft-landing"> Pengaturan </a>
-                          </li>
-                        </ul>
-                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link menu-link" href="<?= site_url('pengelola/perjadin')?>">
+                        <i class="ri-plane-line"></i> <span data-key="t-landing">Perjalanan Dinas</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link menu-link" href="<?= site_url('pengelola/setting')?>">
+                        <i class="ri-settings-4-line"></i> <span data-key="t-landing">Pengaturan</span>
+                      </a>
                     </li>
                   </ul>
                 </div>

@@ -173,10 +173,19 @@ class Kegiatan extends BaseController
       $model = new KegiatanModel;
       $update = $model->update($id,['is_active'=>0]);
 
-      return redirect()->back()->with('message', 'Form telah aktif.');
+      return redirect()->back()->with('message', 'Form telah Non aktif.');
     }
 
     public function delete($id)
+    {
+      $model = new PesertaModel;
+      $id = decrypt($id);
+      $update = $model->delete($id);
+
+      return redirect()->back()->with('message', 'Peserta telah dihapus.');
+    }
+
+    public function deletepeserta($id)
     {
       $model = new PesertaModel;
       $id = decrypt($id);

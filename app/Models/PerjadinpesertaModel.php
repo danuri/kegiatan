@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use Michalsn\Uuid\UuidModel;
 
-class PerjadinModel extends Model
+class PerjadinpesertaModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $uuidFields       = ['kode'];
-    protected $table            = 'tr_perjadin';
-    protected $primaryKey       = 'kode';
+    protected $table            = 'tr_perjadin_peserta';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;

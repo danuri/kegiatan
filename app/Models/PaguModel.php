@@ -3,22 +3,20 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use Michalsn\Uuid\UuidModel;
 
-class PerjadinModel extends Model
+class PaguModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $uuidFields       = ['kode'];
-    protected $table            = 'tr_perjadin';
-    protected $primaryKey       = 'kode';
+    protected $table            = 'tm_pagu';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = false;
+    protected $protectFields    = true;
     protected $allowedFields    = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

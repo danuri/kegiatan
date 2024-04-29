@@ -3,7 +3,10 @@
 namespace App\Controllers\Pengelola;
 
 use App\Controllers\BaseController;
+use Aws\S3\S3Client;
 use App\Models\PerjadinModel;
+use App\Models\PerjadinpesertaModel;
+use App\Models\PaguModel;
 
 class Perjadin extends BaseController
 {
@@ -19,6 +22,7 @@ class Perjadin extends BaseController
       if (! $this->validate([
           'kegiatan' => "required",
           'sasaran' => "required",
+          'nomor_st' => "required",
           'tgl_awal' => "required",
           'tgl_akhir' => "required",
         ])) {
@@ -65,6 +69,7 @@ class Perjadin extends BaseController
           'tahun_anggaran' => $this->request->getVar('tahun_anggaran'),
           'tgl_awal' => $this->request->getVar('tgl_awal'),
           'tgl_akhir' => $this->request->getVar('tgl_akhir'),
+          'nomor_surat' => $this->request->getVar('nomor_st'),
           'surat_tugas' => $file_name,
           'created_by' => session('nip'),
           'is_active' => 0,
@@ -74,5 +79,78 @@ class Perjadin extends BaseController
       $model->insert($param);
 
       return redirect()->back()->with('message', 'Kegiatan Perjalanan Dinas telah ditambahkan.');
+    }
+
+    public function detail($kode)
+    {
+      $model = new PerjadinModel;
+      $mpeserta = new PerjadinpesertaModel;
+      $mpagu = new PaguModel;
+      $data['giat'] = $model->find($kode);
+      $data['tujuan'] = $mpagu->findAll();
+      // $data['peserta'] = $mpeserta->where('kode_perjadin',$kode)->findAll();
+
+      $db      = \Config\Database::connect();
+      $data['peserta'] = $db->table('tr_perjadin_peserta')->select('tr_perjadin_peserta.*,tm_pagu.satker')->join('tm_pagu','tm_pagu.id = tr_perjadin_peserta.tujuan')->where('tr_perjadin_peserta.kode_perjadin',$kode)->get()->getResult();
+      return view('pengelola/perjadin/detail', $data);
+      // dd($data);
+    }
+
+    public function savepeserta()
+    {
+      if (! $this->validate([
+          'nip' => "required",
+          'nama' => "required",
+          'jabatan' => "required",
+          'pangkat' => "required",
+          'tgl_awal' => "required",
+          'tgl_akhir' => "required",
+          'tujuan' => "required",
+        ])) {
+            return redirect()->back()->with('message', 'Harap isi dengan lengkap.');
+        }
+
+        $pagumodel = new PaguModel;
+        $tujuan = $pagumodel->find($this->request->getVar('tujuan'));
+
+        $param = [
+          'nip' => $this->request->getVar('nip'),
+          'nama' => $this->request->getVar('nama'),
+          'jabatan' => $this->request->getVar('jabatan'),
+          'pangkat' => $this->request->getVar('pangkat'),
+          'tanggal_mulai' => $this->request->getVar('tgl_awal'),
+          'tanggal_akhir' => $this->request->getVar('tgl_akhir'),
+          'tujuan_id' => $this->request->getVar('tujuan'),
+          'tujuan' => $tujuan->satker,
+          'kode_perjadin' => $this->request->getVar('kode')
+        ];
+
+      $model = new PerjadinpesertaModel;
+      $model->insert($param);
+
+      return redirect()->back()->with('message', 'Peserta Kegiatan telah ditambahkan.');
+    }
+
+    public function deletepeserta($id)
+    {
+      $model = new PerjadinpesertaModel;
+      $model->delete(decrypt($id));
+      return redirect()->back()->with('message', 'Peserta Kegiatan telah ditambahkan.');
+    }
+
+    public function active($id)
+    {
+      $model = new PerjadinModel;
+      $update = $model->update($id,['is_active'=>1]);
+
+      return redirect()->back()->with('message', 'Form telah aktif.');
+    }
+
+    public function deactive($id)
+    {
+      $model = new PerjadinModel;
+      $update = $model->update($id,['is_active'=>0]);
+
+      return redirect()->back()->with('message', 'Form telah Non aktif.');
     }
 }
