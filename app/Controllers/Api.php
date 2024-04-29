@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CrudModel;
 use App\Models\PerjadinpesertaModel;
+use \Hermawan\DataTables\DataTable;
 
 class Api extends BaseController
 {
