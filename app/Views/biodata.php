@@ -105,10 +105,10 @@
                 </div>
                 <div class="col-lg-9">
                   <div class="input-group">
-                    <input type="text" class="form-control" name="nip" id="nip" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                    <input type="number" class="form-control" name="nip" id="nip" aria-describedby="button-addon2" required>
                     <button class="btn btn-outline-success" type="button" id="button-addon2" onclick="checksimpeg()">Check</button>
                   </div>
-                  Silakan isi secara manual jika bukan dari Kementerian Agama.
+                  Silakan isi secara manual jika bukan dari Kementerian Agama. Isi NIK jika Non ASN
                 </div>
               </div>
               <div class="row mb-3">
