@@ -28,6 +28,7 @@ use CodeIgniter\Router\RouteCollection;
      $routes->get('kegiatan/active/(:any)', 'Pengelola\Kegiatan::active/$1');
      $routes->get('kegiatan/deactive/(:any)', 'Pengelola\Kegiatan::deactive/$1');
      $routes->get('kegiatan/export/(:any)', 'Pengelola\Kegiatan::export/$1');
+     $routes->get('kegiatan/docabsen/(:any)', 'Pengelola\Kegiatan::docabsen/$1');
      $routes->get('kegiatan/peserta/(:any)', 'Pengelola\Kegiatan::peserta/$1');
      $routes->get('kegiatan/exportpdf/(:any)', 'Pengelola\Kegiatan::exportpdf/$1');
      $routes->get('kegiatan/topdf/(:any)', 'Pengelola\Kegiatan::topdf/$1');

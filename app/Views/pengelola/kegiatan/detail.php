@@ -29,7 +29,7 @@
                 <div class="btn-group mt-2" role="group" aria-label="Basic example">
                   <a href="<?= site_url('pengelola/kegiatan/export/'.$giat->kode)?>" class="btn btn-success">Download Excel</a>
                   <button type="button" class="btn btn-primary">Download Nominatif</button>
-                  <button type="button" class="btn btn-warning">Download Absen</button>
+                  <a href="<?= site_url('pengelola/kegiatan/docabsen/'.$giat->kode)?>" class="btn btn-warning">Download Absen</a>
                   <a href="<?= site_url('pengelola/kegiatan/exportpdf/'.$giat->kode)?>" class="btn btn-danger">Download Biodata PDF</a>
                 </div>
               </div>

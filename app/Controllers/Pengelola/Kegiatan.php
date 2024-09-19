@@ -299,4 +299,51 @@ class Kegiatan extends BaseController
       $writer->save('php://output');
       exit();
     }
+
+    public function docabsen($id)
+    {
+      $model = new KegiatanModel;
+      $giat= $model->find($id);
+
+      $peserta = new PesertaModel;
+      $peserta = $peserta->where('kegiatan_id',$id)->findAll();
+
+      $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('assets/template_daftar_hadir.docx');
+
+      $predefinedMultilevel = array('listType' => \PhpOffice\PhpWord\Style\ListItem::TYPE_BULLET_EMPTY);
+
+      $templateProcessor->setValue('namakegiatan', $giat->kegiatan);
+
+      $templateProcessor->cloneRow('no', count($peserta));
+
+      $no = 1;
+      foreach ($peserta as $row) {
+        $templateProcessor->setValue('no#'.$no, $no);
+        $templateProcessor->setValue('nama#'.$no, $row->nama);
+        $templateProcessor->setValue('nip#'.$no, $row->nip);
+        $templateProcessor->setValue('gol#'.$no, $row->golongan);
+        $templateProcessor->setValue('jabatan#'.$no, $row->jabatan);
+        $templateProcessor->setValue('satker#'.$no, $row->instansi);
+
+        if ($no % 2 == 0) {
+          $templateProcessor->setValue('ttd#'.$no, '');
+          $templateProcessor->setValue('ttd2#'.$no, $no);
+        }else{
+          $templateProcessor->setValue('ttd#'.$no, $no);
+          $templateProcessor->setValue('ttd2#'.$no, '');
+        }
+
+        $no++;
+      }
+
+      $filename = 'daftar_hadir_'.$id.'.docx';
+      $templateProcessor->saveAs('draft/'.$filename);
+
+      return $this->response->download('draft/'.$filename, null);
+
+      // header('Content-Type: application/octet-stream');
+      // header('Content-Disposition: attachment; filename="'.$filename.'"');
+      // $templateProcessor->save('php://output');
+
+    }
 }

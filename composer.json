@@ -16,7 +16,8 @@
         "dompdf/dompdf": "^2.0",
         "hermawan/codeigniter4-datatables": "^0.7.2",
         "michalsn/codeigniter4-uuid": "^1.0",
-        "phpoffice/phpspreadsheet": "^1.29"
+        "phpoffice/phpspreadsheet": "^1.29",
+        "phpoffice/phpword": "^1.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",
