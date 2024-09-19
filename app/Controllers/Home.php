@@ -48,7 +48,7 @@ class Home extends BaseController
         $model = new PesertaModel;
 
         $cek = $model->where(['kegiatan_id'=>$id,'nip'=>$this->request->getVar('nip')])->first();
-        
+
         if($cek){
           return redirect()->back()->with('message', 'NIP Anda sudah terdaftar pada kegiatan ini.');
         }
@@ -61,6 +61,7 @@ class Home extends BaseController
           'pangkat' => $this->request->getVar('pangkat'),
           'golongan' => $this->request->getVar('golongan'),
           'instansi' => $this->request->getVar('instansi'),
+          'kode_instansi' => $this->request->getVar('kode_instansi'),
           'alamatkantor' => $this->request->getVar('alamatkantor'),
           'alamatrumah' => $this->request->getVar('alamatrumah'),
           'nohp' => $this->request->getVar('nohp'),

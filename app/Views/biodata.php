@@ -144,6 +144,7 @@
                 </div>
                 <div class="col-lg-9">
                   <input type="text" class="form-control" id="instansi" name="instansi" required>
+                  <input type="hidden" name="kode_instansi" id="kode_instansi" value="">
                 </div>
               </div>
               <div class="row mb-3">
@@ -315,6 +316,7 @@
           $('#pangkat').val(result.value.PANGKAT);
           $('#golongan').val(result.value.GOL_RUANG);
           $('#instansi').val(result.value.SATKER_3+' '+result.value.SATKER_4);
+          $('#kode_instansi').val(result.value.KODE_SATKER_3);
           // $('#alamatkantor').val();
           $('#alamatrumah').val(result.value.ALAMAT_1);
           $('#email').val(result.value.EMAIL);
