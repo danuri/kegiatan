@@ -7,22 +7,22 @@
   <meta content="Presensi Terintegrasi Kementerian Agama RI" name="description" />
   <meta content="Danunih" name="author" />
   <!-- App favicon -->
-  <link rel="shortcut icon" href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="https://hrms.kemenag.go.id/assets/images/favicon.ico">
 
   <!-- Layout config Js -->
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/layout.js"></script>
+  <script src="https://hrms.kemenag.go.id/assets/js/layout.js"></script>
   <!-- Bootstrap Css -->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://hrms.kemenag.go.id/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
   <!-- Icons Css -->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://hrms.kemenag.go.id/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
   <!-- App Css-->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://hrms.kemenag.go.id/assets/css/app.min.css" rel="stylesheet" type="text/css" />
   <!-- custom Css-->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://hrms.kemenag.go.id/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
   <style media="screen">
 	#loverlay{
@@ -86,19 +86,19 @@
             <div class="navbar-brand-box horizontal-logo">
               <a href="<?= site_url()?>" class="logo logo-dark">
                 <span class="logo-sm">
-                  <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-sm.png" alt="" height="22">
+                  <img src="https://hrms.kemenag.go.id/assets/images/logo-sm.png" alt="" height="22">
                 </span>
                 <span class="logo-lg">
-                  <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-hrms.png" alt="" height="45"> Presensi
+                  <img src="https://hrms.kemenag.go.id/assets/images/logo-hrms.png" alt="" height="45"> Presensi
                 </span>
               </a>
 
               <a href="index.html" class="logo logo-light">
                 <span class="logo-sm">
-                  <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-sm.png" alt="" height="22">
+                  <img src="https://hrms.kemenag.go.id/assets/images/logo-sm.png" alt="" height="22">
                 </span>
                 <span class="logo-lg">
-                  <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-hrms-light.png" alt="" height="17">
+                  <img src="https://hrms.kemenag.go.id/assets/images/logo-hrms-light.png" alt="" height="17">
                 </span>
               </a>
             </div>
@@ -137,19 +137,19 @@
                     <div class="row g-0">
                       <div class="col">
                         <a class="dropdown-icon-item" href="https://hrms.kemenag.go.id">
-                          <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/brands/github.png" alt="HRMS">
+                          <img src="https://hrms.kemenag.go.id/assets/images/brands/github.png" alt="HRMS">
                           <span>HRMS</span>
                         </a>
                       </div>
                       <div class="col">
                         <a class="dropdown-icon-item" href="https://presensi.kemenag.go.id">
-                          <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/brands/bitbucket.png" alt="Presensi">
+                          <img src="https://hrms.kemenag.go.id/assets/images/brands/bitbucket.png" alt="Presensi">
                           <span>Presensi v.1</span>
                         </a>
                       </div>
                       <div class="col">
                         <a class="dropdown-icon-item" href="https://ropeg.kemenag.go.id/satya">
-                          <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/brands/dribbble.png" alt="dribbble">
+                          <img src="https://hrms.kemenag.go.id/assets/images/brands/dribbble.png" alt="dribbble">
                           <span>Satyalancana</span>
                         </a>
                       </div>
@@ -158,19 +158,19 @@
                     <!-- <div class="row g-0">
                       <div class="col">
                         <a class="dropdown-icon-item" href="#!">
-                          <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/brands/dropbox.png" alt="dropbox">
+                          <img src="https://hrms.kemenag.go.id/assets/images/brands/dropbox.png" alt="dropbox">
                           <span>Dropbox</span>
                         </a>
                       </div>
                       <div class="col">
                         <a class="dropdown-icon-item" href="#!">
-                          <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                          <img src="https://hrms.kemenag.go.id/assets/images/brands/mail_chimp.png" alt="mail_chimp">
                           <span>Mail Chimp</span>
                         </a>
                       </div>
                       <div class="col">
                         <a class="dropdown-icon-item" href="#!">
-                          <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/brands/slack.png" alt="slack">
+                          <img src="https://hrms.kemenag.go.id/assets/images/brands/slack.png" alt="slack">
                           <span>Slack</span>
                         </a>
                       </div>
@@ -245,7 +245,7 @@
               <div class="navbar-brand-box">
                 <a href="index.html" class="logo logo-dark">
                   <span class="logo-sm">
-                    <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-sm.png" alt="" height="22">
+                    <img src="https://hrms.kemenag.go.id/assets/images/logo-sm.png" alt="" height="22">
                   </span>
                   <span class="logo-lg">
                     <img src="<?= base_url('assets/images')?>/logo-ropeg.png" alt="" height="30">
@@ -253,10 +253,10 @@
                 </a>
                 <a href="index.html" class="logo logo-light">
                   <span class="logo-sm">
-                    <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-sm.png" alt="" height="22">
+                    <img src="https://hrms.kemenag.go.id/assets/images/logo-sm.png" alt="" height="22">
                   </span>
                   <span class="logo-lg">
-                    <img src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/logo-light.png" alt="" height="17">
+                    <img src="https://hrms.kemenag.go.id/assets/images/logo-light.png" alt="" height="17">
                   </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -332,14 +332,14 @@
             </div>
           </div>
 
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/simplebar/simplebar.min.js"></script>
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/node-waves/waves.min.js"></script>
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/feather-icons/feather.min.js"></script>
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/plugins.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/libs/simplebar/simplebar.min.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/libs/node-waves/waves.min.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/libs/feather-icons/feather.min.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/js/plugins.js"></script>
 
-          <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/app.js"></script>
+          <script src="https://hrms.kemenag.go.id/assets/js/app.js"></script>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
           <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
