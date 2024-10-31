@@ -32,8 +32,9 @@ use CodeIgniter\Router\RouteCollection;
      $routes->get('kegiatan/peserta/(:any)', 'Pengelola\Kegiatan::peserta/$1');
      $routes->get('kegiatan/exportpdf/(:any)', 'Pengelola\Kegiatan::exportpdf/$1');
      $routes->get('kegiatan/topdf/(:any)', 'Pengelola\Kegiatan::topdf/$1');
+$routes->get('kegiatan/delete/peserta/(:any)', 'Pengelola\Kegiatan::deletepeserta/$1');
      $routes->get('kegiatan/delete/(:any)', 'Pengelola\Kegiatan::delete/$1');
-     $routes->get('kegiatan/delete/peserta/(:any)', 'Pengelola\Kegiatan::deletepeserta/$1');
+     
      $routes->get('kegiatan/edit/(:any)', 'Pengelola\Kegiatan::edit/$1');
      $routes->post('kegiatan/edit/(:any)', 'Pengelola\Kegiatan::editsave/$1');
      $routes->get('kegiatan/(:any)', 'Pengelola\Kegiatan::detail/$1');
