@@ -7,23 +7,23 @@
   <meta content="Presensi Terintegrasi Kementerian Agama RI" name="description" />
   <meta content="Danunih" name="author" />
   <!-- App favicon -->
-  <link rel="shortcut icon" href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/images/favicon.ico">
+  <link rel="shortcut icon" href="<?= base_url()?>assets/images/favicon.ico">
 
   <!-- Layout config Js -->
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/layout.js"></script>
+  <script src="<?= base_url()?>assets/js/layout.js"></script>
   <!-- Bootstrap Css -->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?= base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+  <link href="<?= base_url()?>assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
   <!-- Icons Css -->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?= base_url()?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
   <!-- App Css-->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?= base_url()?>assets/css/app.min.css" rel="stylesheet" type="text/css" />
   <!-- custom Css-->
-  <link href="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?= base_url()?>assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
   <style media="screen">
   @media (min-width: 1200px){
@@ -243,12 +243,12 @@
     </div>
   </div>
 
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/simplebar/simplebar.min.js"></script>
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/node-waves/waves.min.js"></script>
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/feather-icons/feather.min.js"></script>
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-  <script src="https://d2mj1s7x3czrue.cloudfront.net/hrms/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+  <script src="<?= base_url()?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url()?>assets/libs/simplebar/simplebar.min.js"></script>
+  <script src="<?= base_url()?>assets/libs/node-waves/waves.min.js"></script>
+  <script src="<?= base_url()?>assets/libs/feather-icons/feather.min.js"></script>
+  <script src="<?= base_url()?>assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+  <script src="<?= base_url()?>assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
